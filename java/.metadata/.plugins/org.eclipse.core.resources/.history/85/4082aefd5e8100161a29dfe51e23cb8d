@@ -1,0 +1,34 @@
+import java.io.File;
+import java.util.List;
+import java.util.concurrent.Callable;
+
+public class NewCallable implements Callable<File[]>{
+	private String lecteur;
+	private final File[] file;
+	
+	public NewCallable(String lecteur) {
+		super();
+		this.lecteur = lecteur;
+	}
+
+	public String getLecteur() {
+		return lecteur;
+	}
+
+	public void setLecteur(String lecteur) {
+		this.lecteur = lecteur;
+	}
+
+	@Override
+	public File[] call() throws Exception {
+		// TODO Auto-generated method stub
+		trouve(lecteur);
+		return file;
+	}
+	
+	public void trouve(String lect)
+	{
+		File lec = new File(lect);
+		file = lec.listFiles();
+	}
+}
